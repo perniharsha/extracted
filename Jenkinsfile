@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -16,7 +15,9 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/perniharsha/extracted.git' // 🔁 UPDATE this
+                retry(3) {
+                    git credentialsId: 'your-credential-id', branch: 'main', url: 'https://github.com/perniharsha/extracted.git'
+                }
             }
         }
 
