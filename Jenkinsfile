@@ -43,8 +43,8 @@ pipeline {
 
         stage("Deploy to Kubernetes") {
             steps {
-                sh "kubectl set image deployment/pythonexas container-0=${IMAGE_TAG} -n default"
-                sh "kubectl rollout restart deploy pythonexas -n default"
+                sh "kubectl set image deployment/pybackend container-0=${IMAGE_TAG} -n default"
+                sh "kubectl rollout restart deploy pybackend -n default"
             }
         }
     }
