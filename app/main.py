@@ -17,3 +17,6 @@ def create_survey(survey: schemas.SurveyCreate, db: Session = Depends(database.g
 @app.get("/surveys/")
 def read_surveys(db: Session = Depends(database.get_db)):
     return crud.get_surveys(db)
+
+
+Base.metadata.create_all(bind=engine)
